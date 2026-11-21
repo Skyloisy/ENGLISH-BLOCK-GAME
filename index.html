@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Sentence Blast — Word Block Puzzle</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-badge">SB</div>
+        <div class="brand-title">
+          <h1>SENTENCE BLAST</h1>
+          <span>Susun Balok &bull; Clear Kalimat</span>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-pill">
+          <div class="stat-label">Skor</div>
+          <div class="stat-value score" id="scoreVal">0</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-label">Combo</div>
+          <div class="stat-value combo" id="comboVal">x1</div>
+        </div>
+        <div class="stat-pill" id="timerPill" style="display: none;">
+          <div class="stat-label">Waktu</div>
+          <div class="stat-value timer" id="timerVal">60s</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mode-bar">
+      <button class="mode-btn active" data-mode="smp">SMP Dasar (3 Slot)</button>
+      <button class="mode-btn" data-mode="sma">SMA Lanjut (4 Slot)</button>
+      <button class="mode-btn" data-mode="rush">Rush 60s</button>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="dot subj"></span> Subject</div>
+      <div class="legend-item"><span class="dot verb"></span> Verb</div>
+      <div class="legend-item"><span class="dot obj"></span> Object</div>
+      <div class="legend-item" id="legendTime" style="display: none;"><span class="dot time"></span> Time / Context</div>
+    </div>
+
+    <div class="feedback-banner" id="feedbackBanner">
+      Pilih balok di bawah lalu tap slot di papan (atau geser langsung) untuk membentuk kalimat valid!
+    </div>
+
+    <main class="board-wrap">
+      <div class="board" id="board"></div>
+    </main>
+
+    <section class="tray-section">
+      <div class="tray-header">
+        <span>Balok Tersedia (Pilih / Drag)</span>
+        <div class="powerups">
+          <button class="power-btn" id="rerollBtn">Acak Balok (<span id="rerollCount">3</span>)</button>
+          <button class="power-btn" id="clearOneBtn">Hapus 1 Slot (<span id="clearOneCount">2</span>)</button>
+        </div>
+      </div>
+      <div class="tray" id="tray"></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <h2 id="modalTitle">Permainan Selesai!</h2>
+      <p id="modalDesc">Papan penuh atau waktu habis. Mantap usahanya!</p>
+      <div class="modal-stats">
+        <div class="m-stat">
+          <div class="k">Skor Akhir</div>
+          <div class="v" id="finalScore">0</div>
+        </div>
+        <div class="m-stat">
+          <div class="k">Kalimat Clear</div>
+          <div class="v" id="finalCleared">0</div>
+        </div>
+      </div>
+      <button class="primary-btn" id="restartBtn">Main Lagi</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
